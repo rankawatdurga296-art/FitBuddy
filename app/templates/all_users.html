@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    FitBuddy — Admin
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="/static/style.css"
+  >
+
+</head>
+
+
+<body>
+
+  <main class="shell wide">
+
+    <header class="topbar">
+
+      <div>
+
+        <span class="badge">
+          FITBUDDY ADMIN
+        </span>
+
+        <h1>
+          Users & plans
+        </h1>
+
+      </div>
+
+
+      <a
+        class="link-button"
+        href="/"
+      >
+        Home
+      </a>
+
+    </header>
+
+
+    {% if not users %}
+
+      <section class="card">
+
+        <p>
+          No users have been created yet.
+        </p>
+
+      </section>
+
+    {% endif %}
+
+
+    {% for user in users %}
+
+      <section class="card admin-card">
+
+        <div class="admin-header">
+
+          <div>
+
+            <h2>
+
+              {{ user.name }}
+
+              <small>
+                #{{ user.user_id }}
+              </small>
+
+            </h2>
+
+
+            <p>
+              {{ user.age }} years ·
+              {{ user.weight_kg }} kg ·
+              {{ user.goal }} ·
+              {{ user.intensity }}
+            </p>
+
+          </div>
+
+
+          <form
+            action="/admin/delete/{{ user.id }}"
+            method="post"
+            onsubmit="return confirm('Delete this user and their plan?');"
+          >
+
+            <button
+              class="danger"
+              type="submit"
+            >
+              Delete
+            </button>
+
+          </form>
+
+        </div>
+
+
+        {% if user.plan %}
+
+          <h3>
+            Original plan
+          </h3>
+
+          <pre class="plan compact">
+{{ user.plan.original_plan }}
+          </pre>
+
+
+          {% if user.plan.updated_plan %}
+
+            <h3>
+              Updated plan
+            </h3>
+
+            <pre class="plan compact">
+{{ user.plan.updated_plan }}
+            </pre>
+
+
+            <h3>
+              Latest feedback
+            </h3>
+
+            <p>
+              {{ user.plan.feedback }}
+            </p>
+
+          {% endif %}
+
+        {% endif %}
+
+      </section>
+
+    {% endfor %}
+
+  </main>
+
+</body>
+
+</html>

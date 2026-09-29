@@ -1,0 +1,459 @@
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #f5f7fb;
+
+  background: #080b12;
+
+  line-height: 1.5;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(73, 91, 255, .20),
+      transparent 30rem
+    ),
+
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(0, 210, 170, .12),
+      transparent 28rem
+    ),
+
+    #080b12;
+}
+
+
+.shell {
+
+  width: min(1040px, 92%);
+
+  margin: 0 auto;
+
+  padding: 54px 0;
+}
+
+
+.shell.wide {
+
+  width: min(1280px, 94%);
+}
+
+
+.hero {
+
+  max-width: 760px;
+
+  margin: 20px 0 32px;
+}
+
+
+h1 {
+
+  font-size:
+    clamp(2.2rem, 6vw, 4.5rem);
+
+  line-height: 1.02;
+
+  margin: 10px 0 16px;
+
+  letter-spacing: -0.04em;
+}
+
+
+h2 {
+
+  margin: 6px 0 14px;
+}
+
+
+h3 {
+
+  margin-top: 26px;
+}
+
+
+p {
+
+  color: #b8c0d1;
+}
+
+
+.badge,
+.eyebrow {
+
+  color: #8debdc;
+
+  font-size: .76rem;
+
+  font-weight: 800;
+
+  letter-spacing: .14em;
+}
+
+
+.card {
+
+  background:
+    rgba(17, 22, 34, .90);
+
+  border: 1px solid #252d3e;
+
+  border-radius: 22px;
+
+  padding: 28px;
+
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.22);
+
+  margin-bottom: 22px;
+}
+
+
+.form-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+
+label {
+
+  display: grid;
+
+  gap: 8px;
+
+  color: #dce2ef;
+
+  font-weight: 700;
+
+  font-size: .92rem;
+}
+
+
+input,
+select,
+textarea {
+
+  width: 100%;
+
+  border: 1px solid #313a4f;
+
+  border-radius: 12px;
+
+  padding: 13px 14px;
+
+  background: #0c111b;
+
+  color: #fff;
+
+  font: inherit;
+
+  outline: none;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+  border-color: #8debdc;
+}
+
+
+textarea {
+
+  min-height: 140px;
+
+  resize: vertical;
+}
+
+
+.form-actions {
+
+  grid-column: 1 / -1;
+
+  margin-top: 8px;
+}
+
+
+button,
+.link-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  padding: 13px 18px;
+
+  background: #8debdc;
+
+  color: #06100e;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+
+button:hover,
+.link-button:hover {
+
+  transform: translateY(-1px);
+
+  filter: brightness(1.05);
+}
+
+
+.topbar {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+
+.topbar h1 {
+
+  font-size:
+    clamp(2rem, 5vw, 3.5rem);
+}
+
+
+.profile-strip {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 22px;
+}
+
+
+.profile-strip div {
+
+  background: #101624;
+
+  border: 1px solid #252d3e;
+
+  border-radius: 14px;
+
+  padding: 13px;
+}
+
+
+.profile-strip strong,
+.profile-strip span {
+
+  display: block;
+}
+
+
+.profile-strip strong {
+
+  color: #7f8aa0;
+
+  font-size: .72rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+}
+
+
+.profile-strip span {
+
+  margin-top: 3px;
+
+  font-size: .92rem;
+}
+
+
+.plan {
+
+  margin: 0;
+
+  white-space: pre-wrap;
+
+  font:
+    14px/1.7
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+
+  color: #dfe7f5;
+
+  overflow-x: auto;
+}
+
+
+.compact {
+
+  max-height: 520px;
+
+  overflow: auto;
+}
+
+
+.two-col {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 22px;
+}
+
+
+.tip {
+
+  white-space: pre-line;
+
+  color: #e3e9f5;
+}
+
+
+.disclaimer {
+
+  font-size: .82rem;
+
+  color: #78849a;
+}
+
+
+.success {
+
+  background: #102b28;
+
+  border: 1px solid #24594f;
+
+  color: #b8fff4;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  margin-bottom: 18px;
+}
+
+
+.error-card {
+
+  border-color: #61333a;
+}
+
+
+.admin-header {
+
+  display: flex;
+
+  align-items: start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.admin-header small {
+
+  color: #8490a5;
+
+  font-weight: 500;
+}
+
+
+.danger {
+
+  background: #ef8794;
+}
+
+
+footer {
+
+  color: #748097;
+
+  text-align: center;
+
+  padding: 12px;
+}
+
+
+footer a {
+
+  color: #aab4c8;
+}
+
+
+@media (max-width: 760px) {
+
+  .form-grid,
+  .two-col {
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .profile-strip {
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .topbar,
+  .admin-header {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .form-actions {
+
+    grid-column: auto;
+  }
+
+}

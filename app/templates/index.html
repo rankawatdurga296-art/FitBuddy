@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FitBuddy — AI Fitness Planner</title>
+
+  <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+  <main class="shell">
+
+    <section class="hero">
+
+      <span class="badge">
+        FITBUDDY • AI FITNESS PLANNER
+      </span>
+
+      <h1>
+        Build a plan that fits your goal.
+      </h1>
+
+      <p>
+        Generate a structured 7-day workout plan
+        and a practical nutrition/recovery tip
+        with Gemini.
+      </p>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        Your profile
+      </h2>
+
+      <form action="/generate-workout" method="post" class="form-grid">
+
+        <label>
+
+          Name
+
+          <input name="name" required minlength="2" maxlength="100" placeholder="Your name">
+
+        </label>
+
+
+        <label>
+
+          User ID
+
+          <input name="user_id" required pattern="[A-Za-z0-9_-]{2,64}" placeholder="e.g. user_001">
+
+        </label>
+
+
+        <label>
+
+          Age
+
+          <input type="number" name="age" min="13" max="100" required>
+
+        </label>
+
+
+        <label>
+
+          Weight (kg)
+
+          <input type="number" name="weight_kg" min="20" max="300" step="0.1" required>
+
+        </label>
+
+
+        <label>
+
+          Fitness goal
+
+          <select name="goal" required>
+
+            <option value="weight loss">
+              Weight loss
+            </option>
+
+            <option value="muscle gain">
+              Muscle gain
+            </option>
+
+            <option value="general wellness">
+              General wellness
+            </option>
+
+            <option value="flexibility">
+              Flexibility
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+
+          Workout intensity
+
+          <select name="intensity" required>
+
+            <option value="low">
+              Low
+            </option>
+
+            <option value="medium" selected>
+              Medium
+            </option>
+
+            <option value="high">
+              High
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <div class="form-actions">
+
+          <button type="submit">
+            Generate 7-Day Plan →
+          </button>
+
+        </div>
+
+      </form>
+
+
+      <p class="disclaimer">
+        FitBuddy provides general wellness
+        information, not medical diagnosis
+        or treatment.
+      </p>
+
+    </section>
+
+
+    <footer>
+
+      <a href="/docs">
+        API Docs
+      </a>
+
+      ·
+
+      <a href="/health">
+        Health Check
+      </a>
+
+      · Admin: protected separately
+
+    </footer>
+
+  </main>
+
+</body>
+
+</html>

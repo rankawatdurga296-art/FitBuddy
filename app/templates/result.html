@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    FitBuddy — Your Plan
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="/static/style.css"
+  >
+
+</head>
+
+
+<body>
+
+  <main class="shell">
+
+    <header class="topbar">
+
+      <div>
+
+        <span class="badge">
+          YOUR FITBUDDY PLAN
+        </span>
+
+        <h1>
+          Hello, {{ user.name }}.
+        </h1>
+
+      </div>
+
+
+      <a
+        class="link-button"
+        href="/"
+      >
+        New plan
+      </a>
+
+    </header>
+
+
+    {% if message %}
+
+      <div class="success">
+        {{ message }}
+      </div>
+
+    {% endif %}
+
+
+    <section class="profile-strip">
+
+      <div>
+
+        <strong>
+          User ID
+        </strong>
+
+        <span>
+          {{ user.user_id }}
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          Age
+        </strong>
+
+        <span>
+          {{ user.age }}
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          Weight
+        </strong>
+
+        <span>
+          {{ user.weight_kg }} kg
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          Goal
+        </strong>
+
+        <span>
+          {{ user.goal }}
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          Intensity
+        </strong>
+
+        <span>
+          {{ user.intensity }}
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <section class="card plan-card">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="eyebrow">
+            7-DAY WORKOUT
+          </span>
+
+          <h2>
+            {{
+              "Updated plan"
+              if plan.updated_plan
+              else "Original plan"
+            }}
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <pre class="plan">
+{{ current_plan }}
+      </pre>
+
+    </section>
+
+
+    <section class="two-col">
+
+
+      <article class="card">
+
+        <span class="eyebrow">
+          NUTRITION / RECOVERY
+        </span>
+
+        <h2>
+          One useful habit
+        </h2>
+
+        <p class="tip">
+          {{ plan.nutrition_tip }}
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <span class="eyebrow">
+          FEEDBACK LOOP
+        </span>
+
+        <h2>
+          Want to adjust it?
+        </h2>
+
+
+        <form
+          action="/submit-feedback"
+          method="post"
+        >
+
+          <input
+            type="hidden"
+            name="user_id"
+            value="{{ user.user_id }}"
+          >
+
+
+          <label>
+
+            Tell FitBuddy what to change
+
+            <textarea
+              name="feedback"
+              required
+              minlength="5"
+              maxlength="1000"
+              placeholder="Example: make two days lighter and add more mobility work"
+            ></textarea>
+
+          </label>
+
+
+          <button type="submit">
+            Update plan with AI
+          </button>
+
+        </form>
+
+      </article>
+
+    </section>
+
+
+    <p class="disclaimer">
+
+      If an exercise causes significant pain,
+      stop and seek appropriate professional
+      guidance.
+
+      This app is not a substitute for
+      individualized medical or training advice.
+
+    </p>
+
+  </main>
+
+</body>
+
+</html>
